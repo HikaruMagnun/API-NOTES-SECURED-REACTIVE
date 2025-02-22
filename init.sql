@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS categories (
 -- Crear la tabla de notas
 CREATE TABLE IF NOT EXISTS notes (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL UNIQUE,
     content TEXT,
     archived BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

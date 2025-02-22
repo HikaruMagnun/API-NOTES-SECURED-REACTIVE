@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import enterprise.reactive.notes.models.dto.CategoryCoreDto;
 import enterprise.reactive.notes.models.entirty.Category;
 import enterprise.reactive.notes.service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -29,7 +30,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @PostMapping("/create")
-    public Mono<ResponseEntity<Category>> createCategory(@RequestBody CategoryCoreDto category,
+    public Mono<ResponseEntity<Category>> createCategory(@Valid @RequestBody CategoryCoreDto category,
             @AuthenticationPrincipal Authentication authentication) {
         return categoryService.createCategory(category, Long.valueOf(authentication.getDetails().toString()))
                 .map(createdCategory -> ResponseEntity.status(HttpStatus.CREATED).body(createdCategory));
