@@ -7,6 +7,7 @@ spring:
     username: postgres
     password: postgres
 
+server.address: 0.0.0.0
 # Configuración de JWT
 # secret: Clave secreta utilizada para firmar y verificar los tokens JWT.
 # expiration: Tiempo de expiración del token en milisegundos (86400000 ms = 1 día).
