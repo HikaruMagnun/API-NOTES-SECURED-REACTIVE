@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: reactive
+  # Configuración de la base de datos
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/spring_reactive
+    username: postgres
+    password: postgres
+
+# Configuración de JWT
+# secret: Clave secreta utilizada para firmar y verificar los tokens JWT.
+# expiration: Tiempo de expiración del token en milisegundos (86400000 ms = 1 día).
+jwt:
+  secret: 2e7d9c15a3b24716b8f1c3a7e56d8914a45b67fcd2e4f89a736df1c2b8a3f4c1
+  expiration: 86400000 # 1 day
+
+server.error.include-message: always
